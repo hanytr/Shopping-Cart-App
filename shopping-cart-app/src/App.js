@@ -4,9 +4,9 @@ import { addItem, removeItem, updateQuantity } from './cartSlice';
 import './App.css';
 
 const products = [
-  { id: 1, name: 'Laptop', price: 1000 },
-  { id: 2, name: 'Phone', price: 500 },
-  { id: 3, name: 'Headphones', price: 200 },
+  { id: 1, name: 'Chocolate', price: 50 },
+  { id: 2, name: 'DJI Osmo Pocket 4', price: 619 },
+  { id: 3, name: 'Gaming Desktop Intel Core Ultra 7 265KF', price: 2299 },
 ];
 
 function App() {
@@ -23,13 +23,13 @@ function App() {
 
       {/* Danh sách sản phẩm */}
       <div className="products-section">
-        <h2>Sản phẩm</h2>
+        <h2>Dream list</h2>
         <div className="product-list">
           {products.map(prod => (
             <div key={prod.id} className="product-card">
               <h3>{prod.name}</h3>
               <p>${prod.price}</p>
-              <button onClick={() => dispatch(addItem(prod))}>Thêm vào giỏ</button>
+              <button onClick={() => dispatch(addItem(prod))}>Build your dream</button>
             </div>
           ))}
         </div>
@@ -37,9 +37,9 @@ function App() {
 
       {/* Giỏ hàng */}
       <div className="cart-section">
-        <h2>Giỏ hàng của bạn</h2>
+        <h2>Your dream</h2>
         {cartItems.length === 0 ? (
-          <p>Giỏ hàng trống</p>
+          <p>Empty cart</p>
         ) : (
           <>
             {cartItems.map(item => (
@@ -52,7 +52,7 @@ function App() {
                   <button onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}>+</button>
                 </div>
                 <span className="cart-total">${item.price * item.quantity}</span>
-                <button onClick={() => dispatch(removeItem(item.id))}>Xóa</button>
+                <button onClick={() => dispatch(removeItem(item.id))}>Delete</button>
               </div>
             ))}
           </>
@@ -61,9 +61,9 @@ function App() {
 
       {/* Tóm tắt */}
       <div className="summary-section">
-        <h3>Tóm tắt đơn hàng</h3>
-        <p>Tổng số mặt hàng: {totalItems}</p>
-        <p>Tổng tiền: ${totalPrice}</p>
+        <h3>Summary</h3>
+        <p>Total: {totalItems}</p>
+        <p>Cost: ${totalPrice}</p>
       </div>
     </div>
   );
