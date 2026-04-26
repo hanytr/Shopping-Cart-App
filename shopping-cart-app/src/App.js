@@ -13,7 +13,6 @@ function App() {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.items);
 
-  // Tính tổng
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -21,7 +20,7 @@ function App() {
     <div className="app-container">
       <h1>🛒 Shopping Cart</h1>
 
-      {/* Danh sách sản phẩm */}
+      {}
       <div className="products-section">
         <h2>Dream list</h2>
         <div className="product-list">
@@ -35,7 +34,7 @@ function App() {
         </div>
       </div>
 
-      {/* Giỏ hàng */}
+      {}
       <div className="cart-section">
         <h2>Your dream</h2>
         {cartItems.length === 0 ? (
@@ -59,7 +58,7 @@ function App() {
         )}
       </div>
 
-      {/* Tóm tắt */}
+      {}
       <div className="summary-section">
         <h3>Summary</h3>
         <p>Total: {totalItems}</p>
